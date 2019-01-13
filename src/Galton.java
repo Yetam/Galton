@@ -137,4 +137,10 @@ public class Galton {
 	void setFitness(double newFitness){
 		fitness = newFitness;
 	}
+	
+	public Galton(Galton parent) {
+		this.n = parent.n;
+		mLevels = parent.mLevels.clone();
+		this.fitness = parent.fitness;
+	}
 }
