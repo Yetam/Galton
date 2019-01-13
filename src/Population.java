@@ -48,4 +48,9 @@ public class Population {
 
 		return s;
 	}
+	
+	int getKolek( int row, int pos ){
+		//System.out.println(row + " " + pos);
+		return mLevels[row][pos];
+	}
 }
