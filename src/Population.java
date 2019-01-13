@@ -11,8 +11,8 @@ public class Population {
 		
 		mLevels = new int[n][];
 		for (int i = 0; i < n; i++) {
-			mLevels[i] = new int[2 * i + 1];
-			for (int j = 0; j < 2 * i + 1; j++) {
+			mLevels[i] = new int[i + 1];
+			for (int j = 0; j < i + 1; j++) {
 				int losuLosu = r.nextInt(3) - 1;
 				mLevels[i][j] = losuLosu;
 			}
@@ -28,7 +28,7 @@ public class Population {
 			for (int k = 0; k < offset; k++) {
 				s += " ";
 			}
-			offset -= 2;
+			offset -= 1;
 
 			for (int j = 0; j < mLevels[i].length; j++) {
 				switch (mLevels[i][j]) {
