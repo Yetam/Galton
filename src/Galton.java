@@ -72,6 +72,7 @@ public class Galton {
 			y[pos]++;
 		}
 		
+	/*
 		//wypisywanie otrzymanego
 		for(int i=0;i<n;i++){
 			System.out.print(y[i] + " ");
@@ -82,7 +83,7 @@ public class Galton {
 			System.out.print(g[i] + " ");
 		}
 		System.out.println("");
-		
+		*/
 		
 		/**
 		 * Ponizej jest obliczanie funkcji celu
@@ -97,7 +98,7 @@ public class Galton {
 		double fit = ((G - Y)/G + 1)/2;
 		this.setFitness(fit);
 		
-		System.out.println("Fitness: " + fit);
+		//System.out.println("Fitness: " + fit);
 	}
 
 	public String toString() {
