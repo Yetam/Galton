@@ -35,12 +35,13 @@ public class Populacja {
 	}
 
 	void createKidPopulation() {
+		kid.clear();
 		sumOfFitness=0;
 		for(int i=0 ; i<pop.size()/2 ; i++){
 			sumOfFitness += pop.get(i).fitness;
 		}
 		
-		for(int i=0;i<pop.size()/2;i++){
+		for(int i=0;i<pop.size()/4;i++){
 			
 			/**
 			 * Ponizsze liniki maja wylosowac dwoch roznych rodzicow z populacji
@@ -52,6 +53,13 @@ public class Populacja {
 				parent2 = choseByRoulette();
 			}
 			
+			kid.add( new Galton(pop.get(parent1)) );
+			kid.add( new Galton(pop.get(parent2)) );
+		}
+		
+		for(int i=0;i<kid.size();i+=2){
+			//tutaj funkcja mutujaca kid.get(i) oraz kid.get(i+1)
+			//hehehe
 		}
 		
 	}
@@ -74,10 +82,30 @@ public class Populacja {
 	
 
 	void joinKidsAndPopulation() {
-	
+		//petla usuwajaca najgorsza polowe osbnikow z pop. Iteruje od tylu
+		for(int stryczek=pop.size()-1 ; stryczek>= pop.size()/2 ; stryczek--){
+			pop.remove(stryczek);
+		}
+		for(int oknoZycia=0 ; oknoZycia<pop.size()/2 ; oknoZycia++){
+			pop.add(new Galton(kid.get(oknoZycia)));
+		}
 	}
 
-	void mutatePopulation() {
-
+	void mutatePopulation(double chance) {
+		for(int i=0 ; i<pop.size() ; i++){		//iteruj po wszystkich organizmach
+			for(int row=0 ; row<pop.get(i).n ; row++){	//iteruj po wszystkich rzedach danego organizmu
+				for(int pos=0 ; pos<=row ; pos++){			//iteruj po wszystkich kolkach danego rzedu
+					if(rnd.nextDouble() < chance){				//czy ma zajsc mutacja
+						double newState = pop.get(i).getKolek(row, pos);	//zmienna na nowy stan
+						while(newState == pop.get(i).getKolek(row, pos)){	//losuj nowy stan tak dlugo az nie wylosujesz innego niz jest
+							pop.get(i).setKolek(row, pos, rnd.nextInt(3) - 1);	//wylosuj nowy stan kolka
+						}
+					}
+				}
+			}
+		}
+	}
+	void printBestFitness(){
+		System.out.println(pop.get(0).fitness);
 	}
 }

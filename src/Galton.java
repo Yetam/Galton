@@ -134,6 +134,9 @@ public class Galton {
 		//System.out.println(row + " " + pos);
 		return mLevels[row][pos];
 	}
+	void setKolek(int row, int pos, int newState){
+		 mLevels[row][pos] = newState;
+	}
 	void setFitness(double newFitness){
 		fitness = newFitness;
 	}

@@ -18,6 +18,19 @@ public class Main {
 		System.out.println(b);
 //		Plot pp = new Plot("a");	
 //		pp.setData(new int[] {-1,1,0}, new int[] {0,1,-2},new int[] {-1,0,-2});
+		
+		
+		Populacja A = new Populacja();
+		A.createGaltonPopulation(10);
+		
+		for(int i=0 ; i<2 ; i++){
+			A.simulateGaltonPopulation();
+			A.sortGaltonPopulation();
+				A.printBestFitness();
+			A.createKidPopulation();
+			A.joinKidsAndPopulation();
+			A.mutatePopulation(0.001);
+		}
 	}
 
 }
