@@ -143,4 +143,49 @@ public class Galton {
 		mLevels = parent.mLevels.clone();
 		this.fitness = parent.fitness;
 	}
+	
+	public void cross(Galton other) {
+		int size = (n+1)*n/2;
+		
+		int a = rnd.nextInt(size);
+	    int b = rnd.nextInt(size);
+
+		while(a == b) {
+			b = rnd.nextInt(size);
+		}
+		int tmp;
+		if(a > b) {
+			tmp = a;
+			a = b;
+			b = tmp;
+		}
+		
+		System.out.println("a " + a + " " + b);
+		
+		int[] oneDimA = new int[size];
+		int[] oneDimB = new int[size];
+		
+		int counter = 0;
+		for(int i = 0; i < mLevels.length; i++) {
+			for(int j = 0; j < mLevels[i].length; j++) {
+				oneDimA[counter] = mLevels[i][j];
+				oneDimB[counter++] = other.mLevels[i][j];
+			}
+		}
+		
+		for(int i = a; i <= b; i++) {
+			tmp = oneDimA[i];
+			oneDimA[i] = oneDimB[i];
+			oneDimB[i] = tmp;
+		}
+		
+		counter= 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < i + 1; j++) {
+				mLevels[i][j] = oneDimA[counter];
+				other.mLevels[i][j] = oneDimB[counter++];
+			}
+		}
+		
+	}
 }
