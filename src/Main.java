@@ -27,20 +27,20 @@ public class Main {
 		
 		
 		System.out.println("Rozpoczynam ewolucje");
-		for(int i=0 ; i<2 ; i++){
+		for(int i=0 ; i<3 ; i++){
 			
 			A.simulateGaltonPopulation();
-		System.out.println(A.pop.size());
+	
 			A.sortGaltonPopulation();
-		System.out.println(A.pop.size());
+
 				A.printBestFitness();
-		System.out.println(A.pop.size());	
+
 			A.createKidPopulation();
-		System.out.println(A.pop.size());
+
 			A.joinKidsAndPopulation();
-			System.out.println(A.pop.size());
+
 			A.mutatePopulation(0.001);
-			System.out.println(A.pop.size());
+
 		}
 	}
 
