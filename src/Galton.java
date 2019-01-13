@@ -164,7 +164,7 @@ public class Galton {
 			b = tmp;
 		}
 		
-		System.out.println("a " + a + " " + b);
+		//System.out.println("a " + a + " " + b);
 		
 		int[] oneDimA = new int[size];
 		int[] oneDimB = new int[size];

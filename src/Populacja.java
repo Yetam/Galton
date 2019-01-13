@@ -58,8 +58,7 @@ public class Populacja {
 		}
 		
 		for(int i=0;i<kid.size();i+=2){
-			//tutaj funkcja mutujaca kid.get(i) oraz kid.get(i+1)
-			//hehehe
+			kid.get(i).cross(kid.get(i+1));
 		}
 		
 	}
@@ -83,10 +82,12 @@ public class Populacja {
 
 	void joinKidsAndPopulation() {
 		//petla usuwajaca najgorsza polowe osbnikow z pop. Iteruje od tylu
-		for(int stryczek=pop.size()-1 ; stryczek>= pop.size()/2 ; stryczek--){
-			pop.remove(stryczek);
+		int maxIterationForAdding = pop.size()/2;
+		for(int stryczek = 0 ; stryczek < maxIterationForAdding ; stryczek++){
+			pop.remove(pop.size()-1);
 		}
-		for(int oknoZycia=0 ; oknoZycia<pop.size()/2 ; oknoZycia++){
+		
+		for(int oknoZycia = 0 ; oknoZycia < maxIterationForAdding ; oknoZycia++){
 			pop.add(new Galton(kid.get(oknoZycia)));
 		}
 	}

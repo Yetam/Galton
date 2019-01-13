@@ -23,7 +23,7 @@ public class Main {
 		*/
 		
 		Populacja A = new Populacja();
-		A.createGaltonPopulation(10);
+		A.createGaltonPopulation(20);
 		
 		
 		System.out.println("Rozpoczynam ewolucje");
