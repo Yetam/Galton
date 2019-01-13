@@ -7,6 +7,8 @@ public class Galton {
 	double fitness;
 	Random rnd = new Random();
 	
+	int ID = rnd.nextInt();
+	
 	int[] y;
 	int[] g;
 
@@ -34,8 +36,8 @@ public class Galton {
 			/**
 			 * TO TRZEBA PODMIENIC NA ZDEFINIOWANY Z ZEWNATRZ ROZKLAD.... JAKOŒ... :P
 			 */
-			if( i>(n/3) && (i<2*n/3)) {
-				g[i]=10;
+			if( i>(n/5) && (i<4*n/5)) {
+				g[i]=100000;
 			}
 			else{
 				g[i]=0;
@@ -96,6 +98,7 @@ public class Galton {
 		}
 
 		double fit = ((G - Y)/G + 1)/2;
+		fit = Math.pow(fit, 4);
 		this.setFitness(fit);
 		
 		//System.out.println("Fitness: " + fit);
@@ -145,7 +148,9 @@ public class Galton {
 	public Galton(Galton parent) {
 		this.n = parent.n;
 		mLevels = parent.mLevels.clone();
-		this.fitness = parent.fitness;
+		//this.fitness = parent.fitness;
+		this.fitness = 0;
+		this.ID = parent.ID;
 	}
 	
 	public void cross(Galton other) {
@@ -191,5 +196,7 @@ public class Galton {
 			}
 		}
 		
+		this.ID = rnd.nextInt();
+		other.ID = rnd.nextInt();
 	}
 }

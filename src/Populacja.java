@@ -15,7 +15,7 @@ public class Populacja {
 
 	void createGaltonPopulation(int n) {
 		for (int i = 0; i < n; i++) {
-			pop.add(new Galton(20));
+			pop.add(new Galton(12));
 		}
 	}
 
@@ -29,7 +29,7 @@ public class Populacja {
 		pop.sort(new Comparator<Galton>() {
 			@Override
 			public int compare(Galton o1, Galton o2) {
-				return o1.fitness > o2.fitness ? -1 : 1;
+				return o1.fitness >= o2.fitness ? -1 : 1;
 			}
 		});
 	}
@@ -52,6 +52,7 @@ public class Populacja {
 				parent1 = choseByRoulette();
 				parent2 = choseByRoulette();
 			}
+			//System.out.println(parent1 + " " + parent2);
 			
 			kid.add( new Galton(pop.get(parent1)) );
 			kid.add( new Galton(pop.get(parent2)) );
@@ -93,6 +94,7 @@ public class Populacja {
 	}
 
 	void mutatePopulation(double chance) {
+		int changes=0;
 		for(int i=0 ; i<pop.size() ; i++){		//iteruj po wszystkich organizmach
 			for(int row=0 ; row<pop.get(i).n ; row++){	//iteruj po wszystkich rzedach danego organizmu
 				for(int pos=0 ; pos<=row ; pos++){			//iteruj po wszystkich kolkach danego rzedu
@@ -101,12 +103,24 @@ public class Populacja {
 						while(newState == pop.get(i).getKolek(row, pos)){	//losuj nowy stan tak dlugo az nie wylosujesz innego niz jest
 							pop.get(i).setKolek(row, pos, rnd.nextInt(3) - 1);	//wylosuj nowy stan kolka
 						}
+						changes++;
 					}
 				}
 			}
 		}
+		System.out.println("Changes made by mutation: " + changes);
 	}
 	void printBestFitness(){
 		System.out.println(pop.get(0).fitness);
+	}
+	void printAllFitness(){
+		for(int i=0;i<pop.size();i++){
+			System.out.print(" " + String.format("%.4f", pop.get(i).fitness));
+		}
+		System.out.println("");
+		for(int i=0;i<pop.size();i++){
+			System.out.print(" " + pop.get(i).ID);
+		}
+		System.out.println("");
 	}
 }
