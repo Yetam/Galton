@@ -6,6 +6,9 @@ public class Galton {
 	int n;
 	double fitness;
 	Random rnd = new Random();
+	
+	int[] y;
+	int[] g;
 
 	public Galton(int n) {
 		this.n = n;
@@ -22,8 +25,8 @@ public class Galton {
 	
 	void simulate(){
 		
-		int[] y = new int[n+1];	//osiagniety wynik
-		int[] g = new int[n+1];	//docelowy wynik
+		y = new int[n+1];	//osiagniety wynik
+		g = new int[n+1];	//docelowy wynik
 			
 		//wypelnianie tablicy na docelowy rozklad
 		for(int i=0;i<=n;i++){	

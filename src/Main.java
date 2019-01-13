@@ -5,7 +5,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		Galton p = new Galton(20);
-		Fenotyp f = new Fenotyp(p);
+		//Fenotyp f = new Fenotyp(p);
 		
 		System.out.println(p);
 	}
