@@ -1,11 +1,12 @@
 import java.util.Random;
 
-public class Population {
+public class Galton {
 
 	private int[][] mLevels;
 	int n;
+	double fitness;
 
-	public Population(int n) {
+	public Galton(int n) {
 		Random r = new Random();
 		this.n = n;
 		
@@ -52,5 +53,8 @@ public class Population {
 	int getKolek( int row, int pos ){
 		//System.out.println(row + " " + pos);
 		return mLevels[row][pos];
+	}
+	void setFitness(double newFitness){
+		fitness = newFitness;
 	}
 }

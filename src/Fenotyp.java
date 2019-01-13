@@ -6,10 +6,9 @@ public class Fenotyp {
 	
 	
 	int n;
-	double fitness;
 	Random rnd = new Random();
 	
-	Fenotyp(Population organizm){
+	Fenotyp(Galton organizm){
 		this.n = organizm.n;
 		
 		int[] y = new int[n+1];	//osiagniety wynik
@@ -81,9 +80,10 @@ public class Fenotyp {
 			G += g[i];
 		}
 
-		fitness = (G - Y)/G;
+		double fit = ((G - Y)/G + 1)/2;
+		organizm.setFitness(fit);
 		
-		System.out.println("Fitness: " + fitness);
+		System.out.println("Fitness: " + fit);
 	}
 	
 	
