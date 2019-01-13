@@ -3,10 +3,12 @@ import java.util.Random;
 public class Population {
 
 	private int[][] mLevels;
+	int n;
 
 	public Population(int n) {
 		Random r = new Random();
-
+		this.n = n;
+		
 		mLevels = new int[n][];
 		for (int i = 0; i < n; i++) {
 			mLevels[i] = new int[2 * i + 1];
