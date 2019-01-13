@@ -38,22 +38,25 @@ public class Main {
  */
 		
 		Populacja A = new Populacja();
-		A.createGaltonPopulation(40);
+		A.createGaltonPopulation(8);
 		
 		
 		System.out.println("Rozpoczynam ewolucje");
 		for(int i=0 ; i<40 ; i++){
 			System.out.println("\n Generacja: " + i);
 			
+			A.printAllFitness();
 			A.simulateGaltonPopulation();
 			A.sortGaltonPopulation();
+			A.printAllFitness();
 			
 			//A.printBestFitness();
 			
 			A.createKidPopulation();
-			A.printAllFitness();
+			
 			A.joinKidsAndPopulation();
-			A.mutatePopulation(0.000001);
+			
+			A.mutatePopulation(0.00001);
 			
 			//A.printAllFitness();
 		

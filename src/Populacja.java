@@ -46,10 +46,9 @@ public class Populacja {
 			/**
 			 * Ponizsze liniki maja wylosowac dwoch roznych rodzicow z populacji
 			 */
-			int parent1 = 0;
-			int parent2 = 0;
+			int parent1 = choseByRoulette();
+			int parent2 = choseByRoulette();
 			while(parent1 == parent2){
-				parent1 = choseByRoulette();
 				parent2 = choseByRoulette();
 			}
 			//System.out.println(parent1 + " " + parent2);
@@ -95,7 +94,7 @@ public class Populacja {
 
 	void mutatePopulation(double chance) {
 		int changes=0;
-		for(int i=0 ; i<pop.size() ; i++){		//iteruj po wszystkich organizmach
+		for(int i=(pop.size()/2) ; i<(pop.size()) ; i++){		//iteruj po wszystkich organizmach
 			for(int row=0 ; row<pop.get(i).n ; row++){	//iteruj po wszystkich rzedach danego organizmu
 				for(int pos=0 ; pos<=row ; pos++){			//iteruj po wszystkich kolkach danego rzedu
 					if(rnd.nextDouble() < chance){				//czy ma zajsc mutacja
