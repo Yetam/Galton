@@ -38,12 +38,12 @@ public class Main {
  */
 		
 		Populacja A = new Populacja();
-		A.createGaltonPopulation(24);
+		A.createGaltonPopulation(28);
 		
 		
 		System.out.println("Rozpoczynam ewolucje");
-		for(int i=0 ; i<1000 ; i++){
-			System.out.println("\n Generacja: " + i);
+		for(int i=0 ; i<10000 ; i++){
+			//System.out.println(i);
 			
 			A.addRandom();
 			//A.printAllFitness();
