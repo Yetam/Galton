@@ -38,17 +38,17 @@ public class Main {
  */
 		
 		Populacja A = new Populacja();
-		A.createGaltonPopulation(40);
+		A.createGaltonPopulation(24);
 		
 		
 		System.out.println("Rozpoczynam ewolucje");
-		for(int i=0 ; i<100 ; i++){
+		for(int i=0 ; i<1000 ; i++){
 			System.out.println("\n Generacja: " + i);
 			
 			A.addRandom();
-			A.printAllFitness();
+			//A.printAllFitness();
 			A.simulateGaltonPopulation();
-			A.printAllFitness();
+			//A.printAllFitness();
 			A.sortGaltonPopulation();
 			
 			A.printBestFitness();
@@ -57,7 +57,7 @@ public class Main {
 			
 			A.joinKidsAndPopulation();
 			
-			//A.mutatePopulation(0.0000001);
+			A.mutatePopulation(0.0000001);
 			A.pop.get(0).printGalton();
 			
 			

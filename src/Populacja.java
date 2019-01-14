@@ -6,7 +6,7 @@ public class Populacja {
 	ArrayList<Galton> pop = new ArrayList<Galton>();
 	ArrayList<Galton> kid = new ArrayList<Galton>();
 	
-	int galtonSize = 24;
+	int galtonSize = 8;
 	
 	double sumOfFitness;
 	Random rnd = new Random();
@@ -115,8 +115,12 @@ public class Populacja {
 		System.out.println(pop.get(0).fitness);
 	}
 	void addRandom(){
-		pop.remove(pop.size()/2-2);
-		pop.add(new Galton(galtonSize));
+		for(int i=2*pop.size()/5 ; i<3*pop.size()/5 ; i++){
+			pop.remove(i);
+			pop.add(i, new Galton(galtonSize));
+		}
+		//pop.remove(pop.size()/2-2);
+		//pop.add(new Galton(galtonSize));
 	}
 	void printAllFitness(){
 		for(int i=0;i<pop.size();i++){

@@ -56,10 +56,14 @@ public class Galton {
 				//sprawdzenie gdzie mamy isc
 				switch (this.getKolek(row, pos)) {
 				case -1:
-					//do nothing bo skret w lewo
+					if(rnd.nextFloat() > 0.01){
+						pos++;
+					}
 					break;
 				case 1:
-					pos++; //skret w prawo
+					if(rnd.nextFloat() < 0.01){
+						pos++;
+					}
 					break;
 				case 0:
 					if(rnd.nextDouble() > 0.5){
