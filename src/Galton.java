@@ -31,17 +31,14 @@ public class Galton {
 		g = new int[n+1];	//docelowy wynik
 			
 		//wypelnianie tablicy na docelowy rozklad
-		for(int i=0;i<=n;i++){	
-			//g[i] = 5;
-			/**
-			 * TO TRZEBA PODMIENIC NA ZDEFINIOWANY Z ZEWNATRZ ROZKLAD.... JAKOŒ... :P
-			 */
-			if( i>(n/5) && (i<4*n/5)) {
-				g[i]=100000;
+		for(int i=0;i<=n;i++){
+			if(i<n/2){
+				g[i]=1000;
 			}
 			else{
 				g[i]=0;
 			}
+				
 		}
 		
 		//okreslenie liczby kulek potrzebnych do galtona
@@ -98,7 +95,7 @@ public class Galton {
 		}
 
 		double fit = ((G - Y)/G + 1)/2;
-		fit = Math.pow(fit, 4);
+		//fit = Math.pow(fit, 4);
 		this.setFitness(fit);
 		
 		//System.out.println("Fitness: " + fit);
@@ -198,5 +195,11 @@ public class Galton {
 		
 		this.ID = rnd.nextInt();
 		other.ID = rnd.nextInt();
+	}
+	void printGalton(){
+		for(int i=0;i<n+1;i++){
+			System.out.print(y[i] + " ");
+		}
+		System.out.println("");
 	}
 }

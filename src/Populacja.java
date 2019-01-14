@@ -6,6 +6,8 @@ public class Populacja {
 	ArrayList<Galton> pop = new ArrayList<Galton>();
 	ArrayList<Galton> kid = new ArrayList<Galton>();
 	
+	int galtonSize = 24;
+	
 	double sumOfFitness;
 	Random rnd = new Random();
 
@@ -15,13 +17,13 @@ public class Populacja {
 
 	void createGaltonPopulation(int n) {
 		for (int i = 0; i < n; i++) {
-			pop.add(new Galton(12));
+			pop.add(new Galton(galtonSize));
 		}
 	}
 
 	void simulateGaltonPopulation() {
-		for(int i=0;i<pop.size();i++){
-			pop.get(i).simulate();
+		for(int o=0;o<pop.size();o++){
+			pop.get(o).simulate();
 		}
 	}
 
@@ -111,6 +113,10 @@ public class Populacja {
 	}
 	void printBestFitness(){
 		System.out.println(pop.get(0).fitness);
+	}
+	void addRandom(){
+		pop.remove(pop.size()/2-2);
+		pop.add(new Galton(galtonSize));
 	}
 	void printAllFitness(){
 		for(int i=0;i<pop.size();i++){
