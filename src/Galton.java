@@ -33,7 +33,7 @@ public class Galton {
 		//wypelnianie tablicy na docelowy rozklad
 		for(int i=0;i<=n;i++){
 			if(i>n/2){
-				g[i]=1000;
+				g[i]=10000;
 			}
 			else{
 				g[i]=0;
@@ -56,12 +56,12 @@ public class Galton {
 				//sprawdzenie gdzie mamy isc
 				switch (this.getKolek(row, pos)) {
 				case -1:
-					if(rnd.nextFloat() > 0.0){
+					if(rnd.nextFloat() > 0.00){
 						pos++;
 					}
 					break;
 				case 1:
-					if(rnd.nextFloat() < 0.0){
+					if(rnd.nextFloat() < 0.00){
 						pos++;
 					}
 					break;

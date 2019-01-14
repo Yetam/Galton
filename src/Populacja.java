@@ -6,7 +6,7 @@ public class Populacja {
 	ArrayList<Galton> pop = new ArrayList<Galton>();
 	ArrayList<Galton> kid = new ArrayList<Galton>();
 	
-	int galtonSize = 8;
+	int galtonSize = 12;
 	
 	double sumOfFitness;
 	Random rnd = new Random();

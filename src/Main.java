@@ -41,13 +41,13 @@ public class Main {
  */
 		
 		Populacja A = new Populacja();
-		A.createGaltonPopulation(28);
+		A.createGaltonPopulation(4);
 		
 		BufferedWriter fw = new BufferedWriter(new FileWriter("fitness.dat"));
 		BufferedWriter gw = new BufferedWriter(new FileWriter("galtonBin.dat"));
 		String bins, fit;
 		System.out.println("Rozpoczynam ewolucje");
-		for(int i=0 ; i<1000 ; i++){
+		for(int i=0 ; i<5000 ; i++){
 			//System.out.println(i);
 			
 			A.addRandom();
@@ -63,7 +63,7 @@ public class Main {
 			
 			A.joinKidsAndPopulation();
 			
-			A.mutatePopulation(0.0000001);
+			//A.mutatePopulation(0.0000001);
 			
 			bins =A.pop.get(0).printGalton();
 			System.out.println();
@@ -71,6 +71,8 @@ public class Main {
 			gw.write(i + "\t" + bins + "\n");
 			fw.write(i + "\t" + fit + "\n");
 			//A.printAllFitness();
+			
+			System.out.println(A.pop.get(0).printGalton());
 		
 		}
 		
