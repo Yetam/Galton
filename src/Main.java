@@ -1,7 +1,10 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
 		/*
@@ -40,9 +43,11 @@ public class Main {
 		Populacja A = new Populacja();
 		A.createGaltonPopulation(28);
 		
-		
+		BufferedWriter fw = new BufferedWriter(new FileWriter("fitness.dat"));
+		BufferedWriter gw = new BufferedWriter(new FileWriter("galtonBin.dat"));
+		String bins, fit;
 		System.out.println("Rozpoczynam ewolucje");
-		for(int i=0 ; i<10000 ; i++){
+		for(int i=0 ; i<1000 ; i++){
 			//System.out.println(i);
 			
 			A.addRandom();
@@ -51,20 +56,26 @@ public class Main {
 			//A.printAllFitness();
 			A.sortGaltonPopulation();
 			
-			A.printBestFitness();
+			fit = A.getBestFitness();
+			System.out.println(fit);
 			
 			A.createKidPopulation();
 			
 			A.joinKidsAndPopulation();
 			
 			A.mutatePopulation(0.0000001);
-			A.pop.get(0).printGalton();
 			
+			bins =A.pop.get(0).printGalton();
+			System.out.println();
 			
-			
+			gw.write(i + "\t" + bins + "\n");
+			fw.write(i + "\t" + fit + "\n");
 			//A.printAllFitness();
 		
 		}
+		
+		fw.close();
+		gw.close();
 
 	}
 

@@ -200,10 +200,12 @@ public class Galton {
 		this.ID = rnd.nextInt();
 		other.ID = rnd.nextInt();
 	}
-	void printGalton(){
+	String printGalton(){
+		String s = "";
 		for(int i=0;i<n+1;i++){
-			System.out.print(y[i] + " ");
+			s += (y[i] + " ");
 		}
-		System.out.println("");
+		
+		return s;
 	}
 }

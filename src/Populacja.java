@@ -111,8 +111,9 @@ public class Populacja {
 		}
 		System.out.println("Changes made by mutation: " + changes);
 	}
-	void printBestFitness(){
-		System.out.println(pop.get(0).fitness);
+	
+	String getBestFitness(){
+		return (pop.get(0).fitness) + "";
 	}
 	void addRandom(){
 		for(int i=2*pop.size()/5 ; i<3*pop.size()/5 ; i++){
